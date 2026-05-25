@@ -3,29 +3,20 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _geist = Geist({ subsets: ['latin'] })
+const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'WIPO Group - Smart Property Investment Platform',
-  description: 'Invest smarter with WIPO Group. Access verified property deals, investment committees, and smart growth opportunities.',
+
+  description:
+    'Invest smarter with WIPO Group. Access verified property deals, investment committees, and smart growth opportunities.',
+
   generator: 'v0.app',
+
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/logo123.jpeg',
+    apple: '/logo123.jpeg',
   },
 }
 

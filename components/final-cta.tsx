@@ -81,7 +81,7 @@ export function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <motion.a
-              href="YOUR_APK_LINK"
+              href="https://files.catbox.moe/fh1nuh.apk"
               download
               className="glow-button px-10 py-4 rounded-xl font-bold text-lg text-white flex items-center gap-3 shadow-lg group"
               whileHover={{ scale: 1.08 }}

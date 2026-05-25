@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Users, Home, Clock, Shield } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -11,14 +11,23 @@ const stats = [
   { icon: Shield, label: '100%', text: 'Secure', value: 100 },
 ];
 
-function CountUp({ target, duration = 2 }: { target: number; duration?: number }) {
+function CountUp({
+  target,
+  duration = 2,
+}: {
+  target: number;
+  duration?: number;
+}) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
+
     const increment = target / (duration * 60);
+
     const timer = setInterval(() => {
       start += increment;
+
       if (start >= target) {
         setCount(target);
         clearInterval(timer);
@@ -30,14 +39,17 @@ function CountUp({ target, duration = 2 }: { target: number; duration?: number }
     return () => clearInterval(timer);
   }, [target, duration]);
 
-  return <span>{count}K</span>;
+  return <span>{count}</span>;
 }
 
 export function StatsSection() {
-  const containerVariants = {
+
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
+
     visible: {
       opacity: 1,
+
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.2,
@@ -45,18 +57,27 @@ export function StatsSection() {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const itemVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
     },
   };
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-white to-emerald-50/50">
       <div className="max-w-6xl mx-auto">
+
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -73,9 +94,11 @@ export function StatsSection() {
           >
             GROWTH METRICS
           </motion.span>
+
           <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
             Trusted by Investors Worldwide
           </h2>
+
           <p className="text-lg text-foreground/70">
             Join thousands of successful property investors on WIPO Group
           </p>
@@ -91,21 +114,27 @@ export function StatsSection() {
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
+
             return (
-              <motion.div key={index} variants={itemVariants}>
+              <motion.div
+                key={index}
+                variants={itemVariants}
+              >
                 <motion.div
                   className="glass-green p-8 rounded-2xl text-center group hover:border-emerald-400 transition-all duration-300 h-full relative overflow-hidden shadow-md hover:shadow-lg"
                   whileHover={{ y: -10, scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {/* Background gradient on hover */}
-                  <motion.div 
+
+                  {/* Background gradient */}
+                  <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-emerald-100/30 to-emerald-50/0"
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                   />
 
                   <div className="relative z-10">
+
                     {/* Icon */}
                     <motion.div
                       className="mb-4 inline-block"
@@ -126,7 +155,7 @@ export function StatsSection() {
                     >
                       {stat.label === '10K+' ? (
                         <>
-                          <CountUp target={10} />+
+                          <CountUp target={10} />K+
                         </>
                       ) : stat.label === '500+' ? (
                         <>
@@ -143,7 +172,7 @@ export function StatsSection() {
                     </p>
 
                     {/* Decorative line */}
-                    <motion.div 
+                    <motion.div
                       className="h-1 bg-gradient-to-r from-emerald-300/0 via-emerald-500 to-emerald-300/0 rounded-full mt-4"
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}

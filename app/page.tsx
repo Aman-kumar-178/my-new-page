@@ -4,6 +4,7 @@ import { HowItWorks } from '@/components/how-it-works';
 import { StatsSection } from '@/components/stats-section';
 import { FinalCTA } from '@/components/final-cta';
 import { Footer } from '@/components/footer';
+import InvestmentSection from '@/components/content';
 
 export default function Page() {
   return (
@@ -11,6 +12,7 @@ export default function Page() {
       <HeroSection />
       <FeaturesSection />
       <HowItWorks />
+     <InvestmentSection></InvestmentSection>
       <StatsSection />
       <FinalCTA />
       <Footer />

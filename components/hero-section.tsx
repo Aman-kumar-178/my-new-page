@@ -35,13 +35,12 @@ export function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-12 relative overflow-hidden gradient-bg">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-12 relative overflow-hidden bg-slate-50">
 
-      {/* Animated Background */}
+      {/* Animated Background (Soft White & Green Blurs) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
         <motion.div
-          className="absolute top-0 right-0 w-96 h-96 bg-green-300/20 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl"
           animate={{
             y: [0, 60, 0],
             x: [0, 40, 0],
@@ -54,7 +53,7 @@ export function HeroSection() {
         />
 
         <motion.div
-          className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-300/15 rounded-full blur-3xl"
+          className="absolute bottom-0 left-0 w-96 h-96 bg-green-200/30 rounded-full blur-3xl"
           animate={{
             y: [0, -60, 0],
             x: [0, -40, 0],
@@ -67,7 +66,7 @@ export function HeroSection() {
         />
 
         <motion.div
-          className="absolute top-1/2 left-1/3 w-64 h-64 bg-teal-200/10 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/3 w-64 h-64 bg-teal-100/40 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.5, 0.8, 0.5],
@@ -82,7 +81,7 @@ export function HeroSection() {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 max-w-4xl mx-auto w-full"
+        className="relative z-10 max-w-4xl mx-auto w-full text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -94,7 +93,7 @@ export function HeroSection() {
           className="flex justify-center mb-8"
         >
           <motion.div
-            className="glass-green px-6 py-3 rounded-full shadow-md"
+            className="bg-emerald-50 border border-emerald-200/60 px-6 py-3 rounded-full shadow-sm"
             whileHover={{ scale: 1.05 }}
           >
             <p className="text-sm font-semibold text-emerald-700">
@@ -106,13 +105,12 @@ export function HeroSection() {
         {/* Heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold text-center mb-6 leading-tight text-foreground"
+          className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight text-slate-900"
         >
           <span className="block mb-3">
             Invest Smarter.
           </span>
-
-          <span className="gradient-text text-5xl sm:text-6xl lg:text-7xl">
+          <span className="bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">
             Own Bigger.
           </span>
         </motion.h1>
@@ -120,7 +118,7 @@ export function HeroSection() {
         {/* Subheading */}
         <motion.p
           variants={itemVariants}
-          className="text-lg sm:text-xl text-foreground/70 text-center mb-8 max-w-2xl mx-auto"
+          className="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed"
         >
           WIPO Group brings modern property investment and secure
           real estate opportunities together in one powerful platform.
@@ -138,10 +136,11 @@ export function HeroSection() {
           ].map((indicator, idx) => (
             <motion.div
               key={indicator}
-              className="glass-green px-4 py-3 rounded-lg flex items-center gap-2 border-emerald-300/40 hover:border-emerald-400/60 transition-all"
+              className="bg-white border border-slate-200 px-4 py-3 rounded-xl flex items-center gap-2 shadow-sm transition-all"
               whileHover={{
-                scale: 1.05,
-                backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                scale: 1.03,
+                borderColor: '#10b981', // emerald-500
+                boxShadow: '0 4px 12px rgba(16, 185, 129, 0.08)'
               }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -150,8 +149,7 @@ export function HeroSection() {
               }}
             >
               <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-
-              <p className="text-sm font-medium text-emerald-900">
+              <p className="text-sm font-semibold text-slate-700">
                 {indicator}
               </p>
             </motion.div>
@@ -168,12 +166,11 @@ export function HeroSection() {
           <motion.a
             href="https://files.catbox.moe/fh1nuh.apk"
             download
-            className="glow-button px-8 py-4 rounded-xl font-bold text-lg text-white flex items-center gap-2 shadow-lg transition-all duration-300 group"
+            className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition-all duration-300 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Download className="w-6 h-6 group-hover:animate-bounce" />
-
             Download WIPO App
           </motion.a>
 
@@ -182,15 +179,11 @@ export function HeroSection() {
             href="https://wa.me/918057199719"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-green px-8 py-4 rounded-xl font-bold text-lg text-emerald-700 hover:border-emerald-400 transition-all duration-300 flex items-center gap-2"
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: 'rgba(16, 185, 129, 0.1)',
-            }}
+            className="w-full sm:w-auto bg-white border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-2"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <MessageCircle className="w-6 h-6" />
-
             Contact Us
           </motion.a>
 
